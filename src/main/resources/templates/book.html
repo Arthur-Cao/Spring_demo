@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>menu list</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" >
+</head>
+<body>
+<div class="container" style="max-width:700px;">
+    <h2 class="page-header" style="margin-top: 50px">Details</h2>
+<div class="well">
+    <p>
+        <strong>Name:</strong><span th:text="${book.name}">computer</span>
+    </p>
+    <p>
+        <strong>Author:</strong><span th:text="${book.author}">computer</span >
+    </p>
+    <p>
+        <strong>Description:</strong><span th:text="${book.description}">computer</span>
+    </p>
+    <p th:switch = "${book.status}">
+        <strong>Status:</strong>
+        <span th:case = "1">No</span>
+        <span th:case = "2">Yes</span>
+    </p>
+
+<br>
+    <div th:switch="${book.status}">
+<p class="alert alert-success" th:case="1">
+    <strong >No,bad.</strong>
+</p>
+<p class="alert alert-warning" th:case="2">
+    <strong>Please.</strong>
+</p>
+    </div>
+<br>
+<a href="Javascript:history.back(-1)" class="btn btn-default">Return</a>
+</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script th:src="@{/js/bootstrap.min.js}" src="../static/js/bootstrap.min.js"></script>
+</body>
+</html>
